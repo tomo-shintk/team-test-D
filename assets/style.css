@@ -1,0 +1,29 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --accent:#6c5ce7;
+  --muted:#6b6f76;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(135deg,var(--bg),#ffffff); margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;}
+.bg{padding:40px}
+.card{width:320px; background:var(--card); border-radius:16px; box-shadow:0 8px 24px rgba(15,23,42,0.08); padding:28px; text-align:center; transform-origin:center; animation:pop 700ms cubic-bezier(.2,.9,.3,1) both;}
+.avatar-wrap{width:120px;height:120px;margin:-80px auto 10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#a29bfe);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(108,92,231,0.18);border:6px solid rgba(255,255,255,0.7);}
+.avatar{width:86px;height:86px;filter:drop-shadow(0 6px 18px rgba(108,92,231,0.12));}
+.name{font-size:20px;margin:8px 0 4px;color:#0f1724}
+.skill{color:var(--muted);margin:0 0 12px}
+.motto{font-weight:600;color:var(--accent);margin:8px 0 18px}
+.buttons{display:flex;gap:10px;justify-content:center}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;color:white;background:var(--accent);box-shadow:0 6px 16px rgba(108,92,231,0.18);transform:translateY(0);transition:transform .18s ease, box-shadow .18s ease}
+.btn:active{transform:translateY(2px);box-shadow:0 4px 10px rgba(108,92,231,0.14)}
+
+@keyframes pop{0%{transform:scale(.96) translateY(14px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+
+/* small animated background */
+body::before{content:"";position:fixed;left:-10%;top:-10%;width:40vmax;height:40vmax;background:radial-gradient(circle at 30% 30%, rgba(108,92,231,0.08), transparent 20%), radial-gradient(circle at 70% 70%, rgba(99,102,241,0.06), transparent 20%);filter:blur(24px);z-index:-1;transform:rotate(12deg)}
+
+.card:hover .avatar{transform:translateY(-6px) rotate(-3deg);transition:transform .7s cubic-bezier(.2,.9,.3,1)}
+
+.name::after{content:"";display:block;margin:10px auto 0;width:40px;height:4px;background:linear-gradient(90deg,transparent,var(--accent));border-radius:4px}
+
+@media(min-width:720px){.card{width:380px;padding:36px}}
